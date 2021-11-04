@@ -1,0 +1,17 @@
+.profile__editable {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .profile__editable {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile__editable {
+    flex-wrap: wrap;
+  }
+}

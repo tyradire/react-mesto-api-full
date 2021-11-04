@@ -1,0 +1,18 @@
+.header__button {
+  font-size: 18px;
+  line-height: 22px;
+  text-decoration: none;
+  color: inherit;
+  margin-left: 24px;
+  transition: opacity .3s;
+}
+
+.header__button:hover {
+  opacity: .7;
+}
+
+@media (max-width: 900px) {
+  .header__button {
+    margin-right: 27px;
+  }
+}

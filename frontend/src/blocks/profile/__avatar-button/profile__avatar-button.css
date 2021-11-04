@@ -1,0 +1,11 @@
+.profile__avatar-button {
+  background-image: url(../../../images/edit-avatar.svg);
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: calc(50% - 12px);
+  left: calc(50% - 12px);
+  margin: 0;
+  z-index: -1;
+}

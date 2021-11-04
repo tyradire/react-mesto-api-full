@@ -1,0 +1,17 @@
+.wrapper__link {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  transition: opacity .3s;
+}
+
+.wrapper__link:hover {
+  cursor: pointer;
+  opacity: .8;
+}
