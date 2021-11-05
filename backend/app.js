@@ -22,10 +22,11 @@ const PORT = 3000;
 const app = express();
 
 const options = {
-  origin: [
-    'http://mesto42.nomoredomains.icu',
-    'https://mesto42.nomoredomains.icu',
-  ],
+  //origin: [
+  //  'http://mesto42.nomoredomains.icu',
+  //  'https://mesto42.nomoredomains.icu',
+  //],
+  origin: '*',
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
   optionsSuccessStatus: 204,
