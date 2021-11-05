@@ -36,6 +36,7 @@ const options = {
 app.use('*', cors(options));
 app.use('*', function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
+  res.setHeader("Access-Control-Allow-Credentials", "true");
   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, PATCH, DELETE, OPTIONS');
   const requestHeaders = req.headers['access-control-request-headers'];
   res.header('Access-Control-Allow-Headers', requestHeaders);
