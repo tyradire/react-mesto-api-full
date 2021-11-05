@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+
 class Api {
   constructor(options) {
     this._url = options.baseUrl; // http://mesto42back.nomoredomains.icu
@@ -5,12 +7,14 @@ class Api {
   }
 
   getUserInfo() {
+    this._headers.authorization = localStorage.getItem('jwt');
     return fetch(this._url+'/users/me', {
       headers: this._headers
     }).then(this._handleResponse)
   }
 
   editUserAvatar(avatar) {
+    this._headers.authorization = localStorage.getItem('jwt');
     return fetch(this._url+'/users/me/avatar', {
       method: 'PATCH',
       headers: this._headers,
@@ -21,6 +25,7 @@ class Api {
   }
 
   editUserInfo(name, about) {
+    this._headers.authorization = localStorage.getItem('jwt');
     return fetch(this._url+'/users/me', {
       method: 'PATCH',
       headers: this._headers,
@@ -40,12 +45,14 @@ class Api {
   }
 
   getInitialCards() {
+    this._headers.authorization = localStorage.getItem('jwt');
     return fetch(this._url+'/cards', {
       headers: this._headers
     }).then(this._handleResponse)
   }
 
   postNewCard(name, link) {
+    this._headers.authorization = localStorage.getItem('jwt');
     return fetch(this._url+'/cards', {
       method: 'POST',
       headers: this._headers,
@@ -57,6 +64,7 @@ class Api {
   }
 
   deleteCard(cardId) {
+    this._headers.authorization = localStorage.getItem('jwt');
     return fetch(this._url+`/cards/${cardId}`, {
       method: 'DELETE',
       headers: this._headers
@@ -64,6 +72,7 @@ class Api {
   }
 
   _putLikeCard(cardId) {
+    this._headers.authorization = localStorage.getItem('jwt');
     return fetch(this._url+`/cards/${cardId}/likes`, {
       method: 'PUT',
       headers: this._headers
@@ -71,6 +80,7 @@ class Api {
   }
 
   _deleteLikeCard(cardId) {
+    this._headers.authorization = localStorage.getItem('jwt');
     return fetch(this._url+`/cards/${cardId}/likes`, {
       method: 'DELETE',
       headers: this._headers

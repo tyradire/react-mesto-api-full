@@ -37,9 +37,10 @@ function App() {
   const [userEmail, setUserEmail] = useState('');
 
   useEffect(() => {
-    if (loggedIn) {
+    if (!loggedIn) return;
     Promise.all([api.getUserInfo(), api.getInitialCards()])
     .then(([ userData, cards ]) => {
+      console.log(userData)
       setCurrentUser(userData);
       const arr = cards.map((item) => {
         return {
@@ -55,10 +56,8 @@ function App() {
       setIsLoading(false);
     })
     .catch(err => {
-      console.log(localStorage.getItem('jwt'))
       console.log(err)});
-    }
-  }, []);
+  }, [loggedIn]);
 
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
