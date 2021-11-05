@@ -25,7 +25,6 @@ const getUser = (req, res, next) => User.findById(req.user)
   .catch(next);
 
 const createUser = (req, res, next) => {
-  console.log('haha*******************************');
   const {
     email, name, about, avatar,
   } = req.body;

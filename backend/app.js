@@ -22,11 +22,10 @@ const PORT = 3000;
 const app = express();
 
 const options = {
-  //origin: [
-  //  'http://mesto42.nomoredomains.icu',
-  //  'https://mesto42.nomoredomains.icu',
-  //],
-  origin: '*',
+  origin: [
+    'http://mesto42.nomoredomains.icu',
+    'https://mesto42.nomoredomains.icu',
+  ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
   optionsSuccessStatus: 204,
@@ -35,17 +34,17 @@ const options = {
 };
 
 app.use('*', cors(options));
-app.use('*', function(req, res, next) {
-  console.log('haha*******************************');
-  res.header('Access-Control-Allow-Origin', '*');
-  //res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, PATCH, DELETE, OPTIONS');
-  //const requestHeaders = req.headers['access-control-request-headers'];
-  //res.header('Access-Control-Allow-Headers', requestHeaders);
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+// app.use('*', function(req, res, next) {
+//   console.log('haha*******************************');
+//   res.header('Access-Control-Allow-Origin', '*');
+//   //res.setHeader("Access-Control-Allow-Credentials", "true");
+//   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, PATCH, DELETE, OPTIONS');
+//   //const requestHeaders = req.headers['access-control-request-headers'];
+//   //res.header('Access-Control-Allow-Headers', requestHeaders);
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
 
-  next();
-});
+//   next();
+// });
 
 app.use(express.json());
 app.use(requestLogger);
