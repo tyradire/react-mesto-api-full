@@ -33,6 +33,23 @@ const options = {
   credentials: true,
 };
 
+//творчество
+const allowedCors = [
+  'https://praktikum.tk',
+  'http://praktikum.tk',
+  'http://mesto42.nomoredomains.icu',
+  'https://mesto42.nomoredomains.icu',
+];
+app.use(function(req, res, next) {
+  const { origin } = req.headers;
+  if (allowedCors.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+
+  next();
+});
+//творчество
+
 app.use('*', cors(options));
 app.use(express.json());
 app.use(requestLogger);
