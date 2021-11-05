@@ -35,7 +35,7 @@ const options = {
 
 //творчество
 
-app.use(express.json());
+//app.use(express.json());
 app.use('*', cors(options));
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -46,7 +46,7 @@ app.use(function(req, res, next) {
 }
 //творчество
 
-//app.use(express.json());
+app.use(express.json());
 app.use(requestLogger);
 
 app.post('/signin', celebrate({
