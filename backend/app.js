@@ -34,16 +34,18 @@ const options = {
 };
 
 //творчество
-const allowCrossDomain = (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, PATCH, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-  next();
-};
-//творчество
+
 app.use(express.json());
 app.use('*', cors(options));
-app.use(allowCrossDomain);
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, PATCH, DELETE, OPTIONS');
+  const requestHeaders = req.headers['access-control-request-headers'];
+  res.header('Access-Control-Allow-Headers', requestHeaders);
+  next();
+}
+//творчество
+
 //app.use(express.json());
 app.use(requestLogger);
 
