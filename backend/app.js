@@ -44,6 +44,7 @@ app.use(express.json());
 app.use(function(req, res, next) {
   const { origin } = req.headers;
   if (allowedCors.includes(origin)) {
+    console.log("hihi haha ", origin)
     res.header('Access-Control-Allow-Origin', origin);
   }
 
