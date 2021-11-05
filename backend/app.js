@@ -32,19 +32,15 @@ const options = {
   allowedHeaders: ['Content-Type', 'origin', 'Authorization'],
   credentials: true,
 };
-/* eslint-disable no-unused-vars, no-console, no-comments */
-//творчество
 
-//app.use(express.json());
 app.use('*', cors(options));
-app.use(function(req, res, next) {
+app.use('*', function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, PATCH, DELETE, OPTIONS');
   const requestHeaders = req.headers['access-control-request-headers'];
   res.header('Access-Control-Allow-Headers', requestHeaders);
   next();
 });
-//творчество
 
 app.use(express.json());
 app.use(requestLogger);
