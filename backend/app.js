@@ -40,6 +40,7 @@ const allowedCors = [
   'http://mesto42.nomoredomains.icu',
   'https://mesto42.nomoredomains.icu',
 ];
+app.use(express.json());
 app.use(function(req, res, next) {
   const { origin } = req.headers;
   if (allowedCors.includes(origin)) {
@@ -51,7 +52,7 @@ app.use(function(req, res, next) {
 //творчество
 
 app.use('*', cors(options));
-app.use(express.json());
+//app.use(express.json());
 app.use(requestLogger);
 
 app.post('/signin', celebrate({
