@@ -1,6 +1,6 @@
 class Api {
   constructor(options) {
-    this._url = options.baseUrl; // https://mesto.nomoreparties.co/v1/cohort-26
+    this._url = options.baseUrl; // http://mesto42back.nomoredomains.icu
     this._headers = options.headers;
   }
 
@@ -86,8 +86,7 @@ class Api {
 }
 
 const api = new Api({
-  //baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-26',
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'http://mesto42back.nomoredomains.icu',
   headers: {
     authorization: localStorage.getItem('jwt'),
     'Content-Type': 'application/json'

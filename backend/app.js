@@ -23,9 +23,7 @@ const app = express();
 
 const options = {
   origin: [
-    'http://localhost:3001',
-    'https://ВАШ ДОМЕЙН С ДОКУМЕНТА',
-    'https://YOUR.github.io',
+    'http://mesto42.nomoredomains.icu/',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
