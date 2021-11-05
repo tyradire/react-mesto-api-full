@@ -37,6 +37,7 @@ function App() {
   const [userEmail, setUserEmail] = useState('');
 
   useEffect(() => {
+    if (loggedIn) {
     Promise.all([api.getUserInfo(), api.getInitialCards()])
     .then(([ userData, cards ]) => {
       setCurrentUser(userData);
@@ -56,7 +57,8 @@ function App() {
     .catch(err => {
       console.log(localStorage.getItem('jwt'))
       console.log(err)});
-  }, [userEmail]);
+    }
+  }, []);
 
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
