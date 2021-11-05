@@ -25,6 +25,7 @@ const options = {
   origin: [
     'http://mesto42.nomoredomains.icu',
     'https://mesto42.nomoredomains.icu',
+    'http://localhost:3000',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
