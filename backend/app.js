@@ -23,7 +23,7 @@ const app = express();
 
 const options = {
   origin: [
-    'http://mesto42.nomoredomains.icu/',
+    'http://mesto42.nomoredomains.icu',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
