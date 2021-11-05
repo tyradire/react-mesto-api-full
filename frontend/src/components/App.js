@@ -39,7 +39,6 @@ function App() {
   useEffect(() => {
     Promise.all([api.getUserInfo(), api.getInitialCards()])
     .then(([ userData, cards ]) => {
-      console.log(userData)
       setCurrentUser(userData);
       const arr = cards.map((item) => {
         return {
@@ -57,7 +56,7 @@ function App() {
     .catch(err => {
       console.log(localStorage.getItem('jwt'))
       console.log(err)});
-  }, []);
+  }, [userEmail]);
 
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
