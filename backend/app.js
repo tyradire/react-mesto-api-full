@@ -34,25 +34,21 @@ const options = {
 };
 
 //творчество
-const allowedCors = [
-  'https://praktikum.tk',
-  'http://praktikum.tk',
-  'http://mesto42.nomoredomains.icu',
-  'https://mesto42.nomoredomains.icu',
-];
-app.use(express.json());
-app.use(function(req, res, next) {
-  const { origin } = req.headers;
-  if (allowedCors.includes(origin)) {
-    console.log("hihi haha ", origin)
-    res.header('Access-Control-Allow-Origin', origin);
+const allowCrossDomain = (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, PATCH, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
+  if (req.method === 'OPTIONS') {
+    res.send(200);
+  } else {
+    next();
   }
-
-  next();
-});
+};
 //творчество
-
+app.use(express.json());
 app.use('*', cors(options));
+app.use(allowCrossDomain);
 //app.use(express.json());
 app.use(requestLogger);
 
