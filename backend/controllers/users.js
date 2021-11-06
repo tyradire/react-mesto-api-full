@@ -62,7 +62,11 @@ const login = (req, res, next) => {
         { _id: user._id },
         NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
       );
-      res.send({ token });
+      res.cookie('jwt', token, {
+        maxAge: 604800,
+        httpOnly: true,
+      })
+        .send({ token });
     })
     .catch(next);
 };
