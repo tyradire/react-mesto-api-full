@@ -40,7 +40,6 @@ function App() {
     if (!loggedIn) return;
     Promise.all([api.getUserInfo(), api.getInitialCards()])
     .then(([ userData, cards ]) => {
-      console.log(userData)
       setCurrentUser(userData);
       const arr = cards.map((item) => {
         return {
