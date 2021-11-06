@@ -7,6 +7,8 @@ const CastError = require('../errors/CastError');
 const UnauthorizedError = require('../errors/UnauthorizedError');
 const ConflictError = require('../errors/ConflictError');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 const getUsers = (req, res, next) => User.find({})
   .then((users) => res.status(200).send(users))
   .catch(next);
@@ -56,12 +58,14 @@ const login = (req, res, next) => {
     })
     .then(({ user, matched }) => {
       if (!matched) throw new UnauthorizedError('Неправильные почта или пароль');
-      const token = jwt.sign({ _id: user._id }, 'super-strong-secret');
+      const token = jwt.sign(
+        { _id: user._id },
+        NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
+      );
       res.cookie('jwt', token, {
         maxAge: 604800,
         httpOnly: true,
       })
-        //.send({ message: 'Ответ об успешном логин' });
         .send({ token });
     })
     .catch(next);

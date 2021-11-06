@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { errors, celebrate, Joi } = require('celebrate');
 const cors = require('cors');
+require('dotenv').config();
 const userRouter = require('./routes/users');
 const cardRouter = require('./routes/cards');
 const NotFoundError = require('./errors/NotFoundError');
@@ -35,18 +36,6 @@ const options = {
 };
 
 app.use('*', cors(options));
-// app.use('*', function(req, res, next) {
-//   console.log('haha*******************************');
-//   res.header('Access-Control-Allow-Origin', '*');
-//   //res.setHeader("Access-Control-Allow-Credentials", "true");
-//   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, PATCH, DELETE, OPTIONS');
-//   //const requestHeaders = req.headers['access-control-request-headers'];
-//   //res.header('Access-Control-Allow-Headers', requestHeaders);
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-
-//   next();
-// });
-
 app.use(express.json());
 app.use(requestLogger);
 
